@@ -20,16 +20,17 @@ services:
       - RABBITMQ_PORT=5672
     networks:
       - recipient
-#
-#  micro-collector:
-#    container_name: micro-collector
-#    ports:
-#      - "8082:8082"
-#    environment:
-#      - RABBITMQ_HOST=rabbitmq
-#      - RABBITMQ_PORT=5672
-#    networks:
-#      - recipient
+
+  micro-collector:
+    container_name: micro-collector
+    image: micro-collector:latest
+    ports:
+      - "8082:8082"
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+    networks:
+      - recipient
 
   rabbitmq:
     image: rabbitmq:4.1.0-management
