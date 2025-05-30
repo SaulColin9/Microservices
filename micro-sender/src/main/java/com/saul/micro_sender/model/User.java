@@ -1,4 +1,4 @@
-package com.saul.micro_sender.mode;
+package com.saul.micro_sender.model;
 
 public class User {
     private String name;

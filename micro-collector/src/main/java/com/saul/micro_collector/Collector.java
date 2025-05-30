@@ -14,6 +14,6 @@ public class Collector {
 
     @Scheduled(fixedRate = 10000, initialDelay = 5000)
     private void logMessages(){
-        logger.error(recipientClient.getMessages().toString());
+        logger.info(recipientClient.getMessages().toString());
     }
 }
