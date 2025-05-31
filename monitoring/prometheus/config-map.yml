@@ -10,6 +10,6 @@ data:
       metrics_path: '/actuator/prometheus'
       scrape_interval: 3s
       static_configs:
-        - targets: ['micro-sender.default.svc.cluster.local:8080']
+        - targets: ['micro-sender.default.svc.cluster.local:8080', 'micro-visualizer.default.svc.cluster.local:8084']
           labels:
             application: 'Micro-sender application service'

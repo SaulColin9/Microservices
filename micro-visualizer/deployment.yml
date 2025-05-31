@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: micro-visualizer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: micro-visualizer
+  template:
+    metadata:
+      labels:
+        app: micro-visualizer
+    spec:
+      containers:
+        - name: micro-visualizer
+          image: saulcolin9/micro-visualizer:latest
+          ports:
+            - containerPort: 8084
