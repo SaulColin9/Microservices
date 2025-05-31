@@ -18,9 +18,10 @@ public class Collector {
 
     private static final Logger logger = LoggerFactory.getLogger(Collector.class);
 
-    @Scheduled(fixedRate = 10000, initialDelay = 5000)
+    @Scheduled(fixedRate = 5*10000, initialDelay = 5000)
     private void logMessages(){
         recipientClient.getMessages().stream()
+                .limit(1)
                 .map(Message::new)
                 .forEach(messageService::create);
 
