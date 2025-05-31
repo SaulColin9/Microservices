@@ -25,6 +25,6 @@ public class MessageController {
         List<String> messages = new ArrayList<>(messagesService.readMessages());
         logger.info("GET /message called");
         messagesService.cleanMessages();
-        return messages;
+        return messages.stream().limit(1).toList();
     }
 }
