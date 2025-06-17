@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: micro-recipient-canary
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: micro-recipient
+      version: canary
+  template:
+    metadata:
+      labels:
+        app: micro-recipient
+        version: canary
+    spec:
+      containers:
+        - name: micro-recipient
+          image: saulcolin9/micro-recipient:canary
+          ports:
+            - containerPort: 8081

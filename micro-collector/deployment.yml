@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: micro-collector
+spec:
+  replicas: 3 # nota: deberia de estar a más de una replica, pero mi maquina se relentiza mucho con más
+  selector:
+    matchLabels:
+      app: micro-collector
+  template:
+    metadata:
+      labels:
+        app: micro-collector
+    spec:
+      containers:
+        - name: micro-collector
+          image: saulcolin9/micro-collector:latest
+          ports:
+            - containerPort: 8082

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: micro-collector-canary
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: micro-collector
+      version: canary
+  template:
+    metadata:
+      labels:
+        app: micro-collector
+        version: canary
+    spec:
+      containers:
+        - name: micro-collector
+          image: saulcolin9/micro-collector:canary
+          ports:
+            - containerPort: 8082
